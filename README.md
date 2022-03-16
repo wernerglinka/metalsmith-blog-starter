@@ -7,7 +7,7 @@
   Metalsmith blog starter
 </h1>
 
-Start off your Metalsmith journey with this blog boilerplate. This starter is based on the [Metalsmith bare-bones starter](https://github.com/wernerglinka/metalsmith-bare-bones-starter) but also includes a blog landing page and several "greek" blog posts. 
+Start off your Metalsmith journey with this blog boilerplate. This starter is based on the [Metalsmith bare-bones starter](https://github.com/wernerglinka/metalsmith-bare-bones-starter) but also includes a blog landing page and several "greek" blog posts. Check out a [demo of this starter](https://metalsmith-blog-starter.netlify.app/).
 
 ## Quick start
 
