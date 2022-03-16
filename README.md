@@ -7,16 +7,16 @@
   Metalsmith blog starter
 </h1>
 
-Start off your Metalsmith journey with this blog boilerplate. This starter includes Markdown content and Nunjucks templating. 
+Start off your Metalsmith journey with this blog boilerplate. This starter is based on the [Metalsmith bare-bones starter](https://github.com/wernerglinka/metalsmith-bare-bones-starter) but also includes a blog landing page and several "greek" blog posts. 
 
 ## Quick start
 
 1.  **Create a Metalsmith site.**
 
-    Clone the starter repository to create a new site.
+    Clone the starter repository to create a new blog.
 
     ```shell
-    git clone https://github.com/wernerglinka/metalsmith-bare-bones-starter.git new-site 
+    git clone https://github.com/wernerglinka/metalsmith-blog-starter my-blog 
     ```
 
 1.  **Start developing.**
@@ -24,7 +24,7 @@ Start off your Metalsmith journey with this blog boilerplate. This starter inclu
     Navigate into your new site’s directory and start it up.
 
     ```shell
-    cd new-site/
+    cd my-blog/
     npm install
     npm start
     ```
@@ -33,7 +33,7 @@ Start off your Metalsmith journey with this blog boilerplate. This starter inclu
 
     Your site is now running at `http://localhost:3000`!
 
-    Open the `new-site` directory in your code editor of choice and edit `src/content/index.md.njk`. Save your changes and the browser will update in real time!
+    Open the `my-blog` directory in your code editor of choice and edit any page. Save your changes and the browser will update in real time!
 
 ## What's included?
 
@@ -86,3 +86,5 @@ Looking for more guidance? Full documentation for Metalsmith can be found [on th
 Deploy and Host on any static hosting service. For example [Netlify](https://www.netlify.com), [Vercel](https://vercel.com/) or [Cloudflare Pages](https://pages.cloudflare.com/).
 
 Here is an article about [how to deploy Metalsmith on Netlify](https://www.netlify.com/blog/2015/12/08/a-step-by-step-guide-metalsmith-on-netlify/).
+
+## Join the Metalsmith community at [Gitter](https://gitter.im/metalsmith/community).
