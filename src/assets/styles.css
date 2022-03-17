@@ -1,6 +1,10 @@
 body {
   margin: 0;
   font-family: 'Open Sans', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 h1, h2, h3 {
   font-family: 'Montserrat', sans-serif;
@@ -68,6 +72,7 @@ footer {
   background: #444;
   padding: 20px;
   color: #fff;
+  margin-top: auto;
 }
 .blog-image {
   margin: 40px 0;
@@ -155,8 +160,6 @@ blockquote {
   padding: 20px;
   background-color: #f8f8f8;
 }
-
-
 .gitter-invite img {
   width: 40px;
   display: inline-block;
