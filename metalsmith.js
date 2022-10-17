@@ -35,9 +35,9 @@ const md = (mdString) => {
 
 // Define engine options for the inplace and layouts plugins
 const templateConfig = {
-  directory: "templates",
+  directory: "layouts",
   engineOptions: {
-    path: ["templates"],
+    path: ["layouts"],
     filters: {
       spaceToDash,
       condenseTitle,

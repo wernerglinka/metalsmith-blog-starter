@@ -42,7 +42,7 @@ A quick look at the top-level files and directories you'll see in this Metalsmit
     .
     ├── node_modules
     ├── src
-    ├── templates
+    ├── layouts
     ├── .eslintrc.js
     ├── .gitignore
     ├── .prettierignore
@@ -57,7 +57,7 @@ A quick look at the top-level files and directories you'll see in this Metalsmit
 
 2.  **`/src`**: This directory will contain all the content that makes up your site.
 
-3.  **`/templates`**: This directory will contain all the templates and template partials that will be used to render your site.
+3.  **`/layouts`**: This directory will contain all the layout templates and template partials that will be used to render your site.
 
 4.  **`/.eslintrc`**: This file contains all rules foir eslint.
 
