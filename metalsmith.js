@@ -9,26 +9,26 @@ const permalinks = require("@metalsmith/permalinks");
 const when = require("metalsmith-if");
 const htmlMinifier = require("metalsmith-html-minifier");
 const assets = require("metalsmith-static-files");
-const metadata = require("metalsmith-metadata");
+const metadata = require("@metalsmith/metadata");
 const prism = require("metalsmith-prism");
 
 const marked = require("marked");
 
 const { dependencies } = require("./package.json");
+
 const isProduction = process.env.NODE_ENV === "production";
 
 // functions to extend Nunjucks environment
-const toUpper = string => string.toUpperCase();
-const spaceToDash = string => string.replace(/\s+/g, "-");
-const condenseTitle = string => string.toLowerCase().replace(/\s+/g, "");
-const UTCdate = date => date.toUTCString("M d, yyyy");
-const blogDate = string => new Date(string).toLocaleString("en-US", { year: "numeric", month: "long", day: "numeric" });
-const trimSlashes = string => string.replace(/(^\/)|(\/$)/g, "");
-const md = mdString => {
+const spaceToDash = (string) => string.replace(/\s+/g, "-");
+const condenseTitle = (string) => string.toLowerCase().replace(/\s+/g, "");
+const UTCdate = (date) => date.toUTCString("M d, yyyy");
+const blogDate = (string) =>
+  new Date(string).toLocaleString("en-US", { year: "numeric", month: "long", day: "numeric" });
+const trimSlashes = (string) => string.replace(/(^\/)|(\/$)/g, "");
+const md = (mdString) => {
   try {
     return marked.parse(mdString);
   } catch (e) {
-    console.error("Error parsing markdown:", e);
     return mdString;
   }
 };
@@ -39,7 +39,6 @@ const templateConfig = {
   engineOptions: {
     path: ["templates"],
     filters: {
-      toUpper,
       spaceToDash,
       condenseTitle,
       UTCdate,
@@ -63,8 +62,8 @@ Metalsmith(__dirname)
 
   .use(
     metadata({
-      site: "data/site.json",
-      nav: "data/navigation.json",
+      site: "src/content/data/site.json",
+      nav: "src/content/data/navigation.json",
     })
   )
 
@@ -100,7 +99,7 @@ Metalsmith(__dirname)
   )
 
   .use(when(isProduction, htmlMinifier()))
-  .build(err => {
+  .build((err) => {
     if (err) {
       throw err;
     }
