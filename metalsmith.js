@@ -49,58 +49,66 @@ const templateConfig = {
   },
 };
 
-Metalsmith(__dirname)
-  .source("./src/content")
-  .destination("./build")
-  .clean(true)
-  .metadata({
-    msVersion: dependencies.metalsmith,
-    nodeVersion: process.version,
-  })
-
-  .use(when(isProduction, drafts()))
-
-  .use(
-    metadata({
-      site: "src/content/data/site.json",
-      nav: "src/content/data/navigation.json",
+function msBuild() {
+  Metalsmith(__dirname)
+    .source("./src/content")
+    .destination("./build")
+    .clean(true)
+    .metadata({
+      msVersion: dependencies.metalsmith,
+      nodeVersion: process.version,
     })
-  )
 
-  .use(
-    collections({
-      blog: {
-        pattern: "blog/*.md",
-        sortBy: "date",
-        reverse: true,
-        limit: 10,
-      },
-    })
-  )
+    .use(when(isProduction, drafts()))
 
-  .use(markdown())
+    .use(
+      metadata({
+        site: "src/content/data/site.json",
+        nav: "src/content/data/navigation.json",
+      })
+    )
 
-  .use(permalinks())
+    .use(
+      collections({
+        blog: {
+          pattern: "blog/*.md",
+          sortBy: "date",
+          reverse: true,
+          limit: 10,
+        },
+      })
+    )
 
-  .use(layouts(templateConfig))
+    .use(markdown())
 
-  .use(
-    prism({
-      lineNumbers: true,
-      decode: true,
-    })
-  )
+    .use(permalinks())
 
-  .use(
-    assets({
-      source: "src/assets/",
-      destination: "assets/",
-    })
-  )
+    .use(layouts(templateConfig))
 
-  .use(when(isProduction, htmlMinifier()))
-  .build((err) => {
-    if (err) {
-      throw err;
-    }
-  });
+    .use(
+      prism({
+        lineNumbers: true,
+        decode: true,
+      })
+    )
+
+    .use(
+      assets({
+        source: "src/assets/",
+        destination: "assets/",
+      })
+    )
+
+    .use(when(isProduction, htmlMinifier()))
+    .build((err) => {
+      if (err) {
+        throw err;
+      }
+    });
+  }
+
+  if (require.main === module) {
+    msBuild();
+  } else {
+    module.exports = msBuild;
+  }
