@@ -46,10 +46,10 @@
     "metalsmith-html-minifier": "^4.0.1",
     "metalsmith-if": "^0.1.1",
     "metalsmith-metadata": "^0.0.4",
-    "metalsmith-prism": "^4.1.2",
-    "metalsmith-static-files": "^0.2.1"
+    "metalsmith-prism": "^4.2.0",
+    "metalsmith-static-files": "^0.3.0"
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=18.0.0"
   }
 }

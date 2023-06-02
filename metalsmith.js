@@ -27,7 +27,7 @@ const blogDate = (string) =>
 const trimSlashes = (string) => string.replace(/(^\/)|(\/$)/g, "");
 const md = (mdString) => {
   try {
-    return marked.parse(mdString);
+    return marked.parse(mdString, {mangle: false, headerIds: false});
   } catch (e) {
     return mdString;
   }
