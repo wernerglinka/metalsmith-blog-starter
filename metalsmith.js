@@ -1,34 +1,34 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
-const Metalsmith = require("metalsmith");
-const markdown = require("@metalsmith/markdown");
-const layouts = require("@metalsmith/layouts");
-const collections = require("@metalsmith/collections");
-const drafts = require("@metalsmith/drafts");
-const permalinks = require("@metalsmith/permalinks");
-const when = require("metalsmith-if");
-const htmlMinifier = require("metalsmith-html-minifier");
-const assets = require("metalsmith-static-files");
-const metadata = require("@metalsmith/metadata");
-const prism = require("metalsmith-prism");
+const Metalsmith = require( "metalsmith" );
+const markdown = require( "@metalsmith/markdown" );
+const layouts = require( "@metalsmith/layouts" );
+const collections = require( "@metalsmith/collections" );
+const drafts = require( "@metalsmith/drafts" );
+const permalinks = require( "@metalsmith/permalinks" );
+const when = require( "metalsmith-if" );
+const htmlMinifier = require( "metalsmith-html-minifier" );
+const assets = require( "metalsmith-static-files" );
+const metadata = require( "@metalsmith/metadata" );
+const prism = require( "metalsmith-prism" );
 
-const marked = require("marked");
+const marked = require( "marked" );
 
-const { dependencies } = require("./package.json");
+const { dependencies } = require( "./package.json" );
 
 const isProduction = process.env.NODE_ENV === "production";
 
 // functions to extend Nunjucks environment
-const spaceToDash = (string) => string.replace(/\s+/g, "-");
-const condenseTitle = (string) => string.toLowerCase().replace(/\s+/g, "");
-const UTCdate = (date) => date.toUTCString("M d, yyyy");
-const blogDate = (string) =>
-  new Date(string).toLocaleString("en-US", { year: "numeric", month: "long", day: "numeric" });
-const trimSlashes = (string) => string.replace(/(^\/)|(\/$)/g, "");
-const md = (mdString) => {
+const spaceToDash = ( string ) => string.replace( /\s+/g, "-" );
+const condenseTitle = ( string ) => string.toLowerCase().replace( /\s+/g, "" );
+const UTCdate = ( date ) => date.toUTCString( "M d, yyyy" );
+const blogDate = ( string ) =>
+  new Date( string ).toLocaleString( "en-US", { year: "numeric", month: "long", day: "numeric" } );
+const trimSlashes = ( string ) => string.replace( /(^\/)|(\/$)/g, "" );
+const md = ( mdString ) => {
   try {
-    return marked.parse(mdString, {mangle: false, headerIds: false});
-  } catch (e) {
+    return marked.parse( mdString, { mangle: false, headerIds: false } );
+  } catch ( e ) {
     return mdString;
   }
 };
@@ -37,7 +37,7 @@ const md = (mdString) => {
 const templateConfig = {
   directory: "layouts",
   engineOptions: {
-    path: ["layouts"],
+    path: [ "layouts" ],
     filters: {
       spaceToDash,
       condenseTitle,
@@ -50,65 +50,65 @@ const templateConfig = {
 };
 
 function msBuild() {
-  Metalsmith(__dirname)
-    .source("./src/content")
-    .destination("./build")
-    .clean(true)
-    .metadata({
+  Metalsmith( __dirname )
+    .source( "./src/content" )
+    .destination( "./build" )
+    .clean( true )
+    .metadata( {
       msVersion: dependencies.metalsmith,
       nodeVersion: process.version,
-    })
+    } )
 
-    .use(when(isProduction, drafts()))
+    .use( when( isProduction, drafts() ) )
 
     .use(
-      metadata({
+      metadata( {
         site: "src/content/data/site.json",
         nav: "src/content/data/navigation.json",
-      })
+      } )
     )
 
     .use(
-      collections({
+      collections( {
         blog: {
           pattern: "blog/*.md",
           sortBy: "date",
           reverse: true,
           limit: 10,
         },
-      })
+      } )
     )
 
-    .use(markdown())
+    .use( markdown() )
 
-    .use(permalinks())
+    .use( permalinks() )
 
-    .use(layouts(templateConfig))
+    .use( layouts( templateConfig ) )
 
     .use(
-      prism({
+      prism( {
         lineNumbers: true,
         decode: true,
-      })
+      } )
     )
 
     .use(
-      assets({
+      assets( {
         source: "src/assets/",
         destination: "assets/",
-      })
+      } )
     )
 
-    .use(when(isProduction, htmlMinifier()))
-    .build((err) => {
-      if (err) {
+    .use( when( isProduction, htmlMinifier() ) )
+    .build( ( err ) => {
+      if ( err ) {
         throw err;
       }
-    });
-  }
+    } );
+}
 
-  if (require.main === module) {
-    msBuild();
-  } else {
-    module.exports = msBuild;
-  }
+if ( require.main === module ) {
+  msBuild();
+} else {
+  module.exports = msBuild;
+}
