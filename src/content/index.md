@@ -10,9 +10,8 @@ seo:
 ---
 # Metalsmith Blog Starter
 
-![](/assets/images/blog-images/revolt-m2JlMXdqb3s-unsplash.jpg)
-_Photo by <a href="https://unsplash.com/@revolt?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">REVOLT</a> on <a href="https://unsplash.com/s/photos/typewritter?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>_
-  
+![](/assets/images/pexels-mali-maeder-102100.jpg)
+Photo by <a href="https://www.pexels.com/photo/black-continental-typewriter-on-white-surface-102100/">mali maeder</a>
 
 This Metalsmith starter website will get you started with building a blog. It uses Markdown to write content and the Nunjucks templating language to build pages.
 
