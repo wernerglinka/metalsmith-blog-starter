@@ -1,22 +1,29 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
-const Metalsmith = require( "metalsmith" );
-const markdown = require( "@metalsmith/markdown" );
-const layouts = require( "@metalsmith/layouts" );
-const collections = require( "@metalsmith/collections" );
-const drafts = require( "@metalsmith/drafts" );
-const permalinks = require( "@metalsmith/permalinks" );
-const when = require( "metalsmith-if" );
-const htmlMinifier = require( "metalsmith-html-minifier" );
-const assets = require( "metalsmith-static-files" );
-const metadata = require( "@metalsmith/metadata" );
-const prism = require( "metalsmith-prism" );
+import { performance } from 'perf_hooks';
+import browserSync from 'browser-sync';
+import { fileURLToPath } from 'node:url';
+import { dirname } from 'node:path';
+import Metalsmith from "metalsmith";
+import markdown from "@metalsmith/markdown";
+import layouts from "@metalsmith/layouts";
+import collections from "@metalsmith/collections";
+import drafts from "@metalsmith/drafts";
+import permalinks from "@metalsmith/permalinks";
+import when from "metalsmith-if";
+import htmlMinifier from "metalsmith-html-minifier";
+import assets from "metalsmith-static-files";
+import metadata from "@metalsmith/metadata";
+import prism from "metalsmith-prism";
+import * as marked from "marked";
 
-const marked = require( "marked" );
+// ESM does not currently import JSON modules by default.
+// Ergo we'll JSON.parse the file manually
+import * as fs from 'fs';
+const dependencies = JSON.parse( fs.readFileSync( './package.json' ) ).dependencies;
 
-const { dependencies } = require( "./package.json" );
-
-const isProduction = process.env.NODE_ENV === "production";
+const __dirname = dirname( fileURLToPath( import.meta.url ) );
+const isProduction = process.env.NODE_ENV === 'production';
 
 // functions to extend Nunjucks environment
 const spaceToDash = ( string ) => string.replace( /\s+/g, "-" );
@@ -49,66 +56,86 @@ const templateConfig = {
   },
 };
 
+let devServer = null;
+let t1 = performance.now();
+
 function msBuild() {
-  Metalsmith( __dirname )
-    .source( "./src/content" )
-    .destination( "./build" )
-    .clean( true )
-    .metadata( {
-      msVersion: dependencies.metalsmith,
-      nodeVersion: process.version,
-    } )
-
-    .use( when( isProduction, drafts() ) )
-
-    .use(
-      metadata( {
-        site: "src/content/data/site.json",
-        nav: "src/content/data/navigation.json",
+  return (
+    Metalsmith( __dirname )
+      .clean( true )
+      .watch( isProduction ? false : [ 'src', 'layouts' ] )
+      .source( "./src/content" )
+      .destination( "./build" )
+      .clean( true )
+      .metadata( {
+        msVersion: dependencies.metalsmith,
+        nodeVersion: process.version,
       } )
-    )
 
-    .use(
-      collections( {
-        blog: {
-          pattern: "blog/*.md",
-          sortBy: "date",
-          reverse: true,
-          limit: 10,
-        },
-      } )
-    )
+      .use( when( isProduction, drafts() ) )
 
-    .use( markdown() )
+      .use(
+        metadata( {
+          site: "src/content/data/site.json",
+          nav: "src/content/data/navigation.json",
+        } )
+      )
 
-    .use( permalinks() )
+      .use(
+        collections( {
+          blog: {
+            pattern: "blog/*.md",
+            sortBy: "date",
+            reverse: true,
+            limit: 10,
+          },
+        } )
+      )
 
-    .use( layouts( templateConfig ) )
+      .use( markdown() )
 
-    .use(
-      prism( {
-        lineNumbers: true,
-        decode: true,
-      } )
-    )
+      .use( permalinks() )
 
-    .use(
-      assets( {
-        source: "src/assets/",
-        destination: "assets/",
-      } )
-    )
+      .use( layouts( templateConfig ) )
 
-    .use( when( isProduction, htmlMinifier() ) )
-    .build( ( err ) => {
-      if ( err ) {
-        throw err;
-      }
-    } );
+      .use(
+        prism( {
+          lineNumbers: true,
+          decode: true,
+        } )
+      )
+
+      .use(
+        assets( {
+          source: "src/assets/",
+          destination: "assets/",
+        } )
+      )
+
+      .use( when( isProduction, htmlMinifier() ) )
+  );
 }
 
-if ( require.main === module ) {
-  msBuild();
-} else {
-  module.exports = msBuild;
-}
+const ms = msBuild();
+ms.build( err => {
+  if ( err ) {
+    throw err;
+  }
+  /* eslint-disable no-console */
+  console.log( `Build success in ${ ( ( performance.now() - t1 ) / 1000 ).toFixed( 1 ) }s` );
+  if ( ms.watch() ) {
+    if ( devServer ) {
+      t1 = performance.now();
+      devServer.reload();
+    } else {
+      devServer = browserSync.create();
+      devServer.init( {
+        host: 'localhost',
+        server: './build',
+        port: 3000,
+        injectChanges: false,
+        reloadThrottle: 0
+      } );
+    }
+  }
+} );

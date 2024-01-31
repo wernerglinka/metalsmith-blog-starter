@@ -2,6 +2,7 @@
   "name": "metalsmith-blog-starter",
   "version": "0.1.3",
   "description": "A simple Metalsmith blog starter",
+  "type": "module",
   "keywords": [
     "metalsmith",
     "starter"
@@ -9,17 +10,10 @@
   "author": "werner@glinka.co",
   "license": "MIT",
   "scripts": {
-    "start": "cross-env NODE_ENV=development node ./scripts/watch.js",
+    "start": "cross-env NODE_ENV=development DEBUG=@metalsmith* node metalsmith.js",
     "build": "cross-env NODE_ENV=production node metalsmith.js",
     "serve": "browser-sync start --server 'build'",
     "lint": "eslint --fix ."
-  },
-  "nodemonConfig": {
-    "watch": [
-      "src",
-      "layouts"
-    ],
-    "ext": "js css scss njk json html md"
   },
   "devDependencies": {
     "browser-sync": "^3.0.2",
@@ -30,7 +24,7 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-prettier": "^5.1.3",
-    "prettier": "^3.1.1"
+    "prettier": "^3.2.4"
   },
   "dependencies": {
     "@metalsmith/collections": "^1.3.0",
@@ -38,9 +32,9 @@
     "@metalsmith/layouts": "^2.7.0",
     "@metalsmith/markdown": "^1.10.0",
     "@metalsmith/metadata": "^0.3.0",
-    "@metalsmith/permalinks": "^3.0.0",
+    "@metalsmith/permalinks": "^3.0.1",
     "jstransformer-nunjucks": "^1.2.0",
-    "marked": "^11.1.1",
+    "marked": "^11.2.0",
     "metalsmith": "^2.6.2",
     "metalsmith-debug-ui": "^0.3.2",
     "metalsmith-html-minifier": "^4.0.1",

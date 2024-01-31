@@ -9,7 +9,7 @@ seo:
   canonicalOverwrite: ""
 
 blogTitle: "Curabitur blandit tempus porttitor."
-date: "2022-01-06T12:00:00Z"
+date: "2022-01-07T12:00:00Z"
 author: ""
 image: "/assets/images/blog-images/blog5.jpg"
 featuredBlogpost: true
@@ -21,7 +21,7 @@ excerpt: |-
 
 Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Aenean lacinia bibendum nulla sed consectetur. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur. Maecenas faucibus mollis interdum.
 
-## Vehicula Sollicitudin Tellus
+## Vehicula Sollicitudin Tellus Sit Amet
 
 Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Maecenas faucibus mollis interdum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec sed odio dui.
 
