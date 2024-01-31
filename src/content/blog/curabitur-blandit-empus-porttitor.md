@@ -1,6 +1,7 @@
 ---
 layout: blog-post.njk
 bodyClass: "blog-post"
+draft: false
 
 seo:
   title: Curabitur blandit tempus porttitor.

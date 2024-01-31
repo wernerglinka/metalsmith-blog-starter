@@ -1,6 +1,7 @@
 ---
 layout: blog-post.njk
 bodyClass: "blog-post"
+draft: false
 
 seo:
   title: Etiam porta sem malesuada magna mollis euismod.
