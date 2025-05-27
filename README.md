@@ -16,7 +16,7 @@ Start off your Metalsmith journey with this blog boilerplate. This starter is ba
     Clone the starter repository to create a new blog.
 
     ```shell
-    git clone https://github.com/wernerglinka/metalsmith-blog-starter my-blog 
+    git clone https://github.com/wernerglinka/metalsmith-blog-starter my-blog
     ```
 
 1.  **Start developing.**
@@ -41,12 +41,12 @@ A quick look at the top-level files and directories you'll see in this Metalsmit
 
     .
     ├── node_modules
+    ├── lib
     ├── src
-    ├── layouts
-    ├── .eslintrc.js
+    ├── eslint.config.js
     ├── .gitignore
     ├── .prettierignore
-    ├── .prettierrc
+    ├── prettier.config.js
     ├── LICENSE
     ├── metalsmith.js
     ├── package-lock.json
@@ -57,15 +57,16 @@ A quick look at the top-level files and directories you'll see in this Metalsmit
 
 2.  **`src`**: This directory will contain all the content that makes up your site.
 
-3.  **`layouts`**: This directory will contain all the layout templates and template partials that will be used to render your site.
+3.  **`lib`**: This directory will contain all the layouts, assets and data that will be used to render your site.
 
-4.  **`.eslintrc.yml`**: This file contains all rules foir eslint.
+4.  **`.eslint.config.js`**: This file contains all rules for eslint.
+
 
 5.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
 
 6.  **`.prettierignore`**: This file tells prettier what files it should ignore.
 
-7.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
+7.  **`.prettier.config.js`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
 
 8.  **`LICENSE`**: This Metalsmith starter is licensed under the MIT license.
 
@@ -79,7 +80,7 @@ A quick look at the top-level files and directories you'll see in this Metalsmit
 
 ## Learn more about Metalsmith
 
-Looking for more guidance? Full documentation for Metalsmith can be found [on the Metalsmith website](https://www.metalsmith.io). 
+Looking for more guidance? Full documentation for Metalsmith can be found [on the Metalsmith website](https://www.metalsmith.io).
 
 ## Deploy
 

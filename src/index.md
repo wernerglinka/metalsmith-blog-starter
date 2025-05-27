@@ -1,13 +1,14 @@
 ---
 layout: simple.njk
-bodyClass: "home"
+bodyClass: 'home'
 
 seo:
   title: Metalsmith Blog Starter
-  description: "A blog starter build with Metalsmith"
-  socialImage: "/assets/images/metalsmith-starter-social.png"
-  canonicalOverwrite: ""
+  description: 'A blog starter build with Metalsmith'
+  socialImage: '/assets/images/metalsmith-starter-social.png'
+  canonicalOverwrite: ''
 ---
+
 # Metalsmith Blog Starter
 
 ![](/assets/images/pexels-mali-maeder-102100.jpg)

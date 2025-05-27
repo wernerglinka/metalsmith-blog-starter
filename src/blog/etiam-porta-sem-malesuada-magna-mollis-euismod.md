@@ -1,18 +1,18 @@
 ---
 layout: blog-post.njk
-bodyClass: "blog-post"
+bodyClass: 'blog-post'
 draft: false
 
 seo:
   title: Etiam porta sem malesuada magna mollis euismod.
-  description: "Etiam porta sem malesuada magna mollis euismod."
-  socialImage: "https://res.cloudinary.com/glinkaco/image/upload/v1646849499/tgc2022/social_yitz6j.png"
-  canonicalOverwrite: ""
+  description: 'Etiam porta sem malesuada magna mollis euismod.'
+  socialImage: 'https://res.cloudinary.com/glinkaco/image/upload/v1646849499/tgc2022/social_yitz6j.png'
+  canonicalOverwrite: ''
 
-blogTitle: "Etiam porta sem malesuada magna mollis euismod."
-date: "2021-03-10T12:00:00Z"
-author: ""
-image: "/assets/images/blog-images/blog3.jpg"
+blogTitle: 'Etiam porta sem malesuada magna mollis euismod.'
+date: '2021-03-10T12:00:00Z'
+author: ''
+image: '/assets/images/blog-images/blog3.jpg'
 featuredBlogpost: true
 featuredBlogpostOrder: 1
 excerpt: |-

@@ -1,12 +1,12 @@
 ---
 layout: blog.njk
-bodyClass: "blog"
+bodyClass: 'blog'
 
 seo:
   title: My Blog
-  description: "My blog posts"
-  socialImage: "/assets/images/metalsmith-starter-social.png"
-  canonicalOverwrite: ""
+  description: 'My blog posts'
+  socialImage: '/assets/images/metalsmith-starter-social.png'
+  canonicalOverwrite: ''
 ---
 
 <div class="blog-author">

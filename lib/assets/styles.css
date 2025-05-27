@@ -6,7 +6,9 @@ body {
   flex-direction: column;
   justify-content: flex-start;
 }
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: 'Montserrat', sans-serif;
 }
 .container {
@@ -50,7 +52,7 @@ header .container {
 /* active nav links */
 .home .home,
 .other-page .other-page,
-.blog .blog  {
+.blog .blog {
   color: #ccc;
   pointer-events: none;
   cursor: default;
@@ -65,7 +67,7 @@ img {
   height: auto;
   max-width: 500px;
 }
-img[src$='#full-width'] { 
+img[src$='#full-width'] {
   max-width: 100%;
 }
 footer {
@@ -78,17 +80,17 @@ footer {
   margin: 40px 0;
 }
 
-pre[class*="language-"] {
+pre[class*='language-'] {
   background: #f3f3f3;
   border-left: 2px solid #000;
   position: relative;
   font-size: 14px;
 }
-pre[class*="language-javascript"]:after {
+pre[class*='language-javascript']:after {
   position: absolute;
   top: 0;
-  right:0;
-  content: "js";
+  right: 0;
+  content: 'js';
   padding: 5px;
   background-color: #f8f8f8;
 }

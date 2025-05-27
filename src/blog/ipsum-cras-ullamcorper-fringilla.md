@@ -1,18 +1,18 @@
 ---
 layout: blog-post.njk
-bodyClass: "blog-post"
+bodyClass: 'blog-post'
 draft: false
 
 seo:
   title: Ipsum Cras Ullamcorper Fringilla
-  description: "Etiam porta sem malesuada magna mollis euismod."
-  socialImage: "https://res.cloudinary.com/glinkaco/image/upload/v1646849499/tgc2022/social_yitz6j.png"
-  canonicalOverwrite: ""
+  description: 'Etiam porta sem malesuada magna mollis euismod.'
+  socialImage: 'https://res.cloudinary.com/glinkaco/image/upload/v1646849499/tgc2022/social_yitz6j.png'
+  canonicalOverwrite: ''
 
-blogTitle: "Ipsum Cras Ullamcorper Fringilla"
-date: "2020-05-10T12:00:00Z"
-author: ""
-image: "/assets/images/blog-images/blog4.jpg"
+blogTitle: 'Ipsum Cras Ullamcorper Fringilla'
+date: '2020-05-10T12:00:00Z'
+author: ''
+image: '/assets/images/blog-images/blog4.jpg'
 featuredBlogpost: true
 featuredBlogpostOrder: 1
 excerpt: |-
@@ -21,7 +21,7 @@ excerpt: |-
 
 Aenean lacinia bibendum nulla sed consectetur. Maecenas faucibus mollis interdum. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Curabitur blandit tempus porttitor. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
 
-## Crossing 
+## Crossing
 
 Curabitur blandit tempus porttitor. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Curabitur blandit tempus porttitor. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
 

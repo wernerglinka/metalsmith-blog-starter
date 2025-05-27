@@ -1,18 +1,18 @@
 ---
 layout: blog-post.njk
-bodyClass: "blog-post"
+bodyClass: 'blog-post'
 draft: false
 
 seo:
   title: Cras mattis consectetur purus
-  description: "Etiam porta sem malesuada magna mollis euismod."
-  socialImage: "https://res.cloudinary.com/glinkaco/image/upload/v1646849499/tgc2022/social_yitz6j.png"
-  canonicalOverwrite: ""
+  description: 'Etiam porta sem malesuada magna mollis euismod.'
+  socialImage: 'https://res.cloudinary.com/glinkaco/image/upload/v1646849499/tgc2022/social_yitz6j.png'
+  canonicalOverwrite: ''
 
-blogTitle: "Cras mattis consectetur purus"
-date: "2021-07-10T12:00:00Z"
-author: ""
-image: "/assets/images/blog-images/blog2.jpg"
+blogTitle: 'Cras mattis consectetur purus'
+date: '2021-07-10T12:00:00Z'
+author: ''
+image: '/assets/images/blog-images/blog2.jpg'
 featuredBlogpost: true
 featuredBlogpostOrder: 1
 excerpt: |-
