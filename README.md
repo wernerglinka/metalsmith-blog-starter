@@ -7,6 +7,8 @@
   Metalsmith blog starter
 </h1>
 
+> **This starter is deprecated. Use the [Metalsmith2025 Simple Starter](https://github.com/wernerglinka/metalsmith2025-simple-starter) instead!**
+
 Start off your Metalsmith journey with this blog boilerplate. This starter is based on the [Metalsmith bare-bones starter](https://github.com/wernerglinka/metalsmith-bare-bones-starter) but also includes a blog landing page and several "greek" blog posts. Check out a [demo of this starter](https://metalsmith-blog-starter.netlify.app/).
 
 ## Quick start
@@ -60,7 +62,6 @@ A quick look at the top-level files and directories you'll see in this Metalsmit
 3.  **`lib`**: This directory will contain all the layouts, assets and data that will be used to render your site.
 
 4.  **`.eslint.config.js`**: This file contains all rules for eslint.
-
 
 5.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
 
